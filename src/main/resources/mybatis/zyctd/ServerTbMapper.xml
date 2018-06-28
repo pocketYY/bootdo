@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.zyctd.dao.ServerTbDao">
+
+	<select id="get" resultType="com.bootdo.zyctd.domain.ServerTbDO">
+		select `id`,`model`,`ip`,`status`,`is_delete` from zyctd_server_tb where id = #{value}
+	</select>
+
+	<select id="list" resultType="com.bootdo.zyctd.domain.ServerTbDO">
+		select `id`,`model`,`ip`,`status`,`is_delete` from zyctd_server_tb
+        <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="model != null and model != ''"> and model = #{model} </if>
+		  		  <if test="ip != null and ip != ''"> and ip = #{ip} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		  		</where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="count" resultType="int">
+		select count(*) from zyctd_server_tb
+		 <where>  
+		  		  <if test="id != null and id != ''"> and id = #{id} </if>
+		  		  <if test="model != null and model != ''"> and model = #{model} </if>
+		  		  <if test="ip != null and ip != ''"> and ip = #{ip} </if>
+		  		  <if test="status != null and status != ''"> and status = #{status} </if>
+		  		  <if test="isDelete != null and isDelete != ''"> and is_delete = #{isDelete} </if>
+		  		</where>
+	</select>
+	 
+	<insert id="save" parameterType="com.bootdo.zyctd.domain.ServerTbDO" useGeneratedKeys="true" keyProperty="id">
+		insert into zyctd_server_tb
+		(
+			`model`, 
+			`ip`, 
+			`status`, 
+			`is_delete`
+		)
+		values
+		(
+			#{model}, 
+			#{ip}, 
+			#{status}, 
+			#{isDelete}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.bootdo.zyctd.domain.ServerTbDO">
+		update zyctd_server_tb 
+		<set>
+			<if test="model != null">`model` = #{model}, </if>
+			<if test="ip != null">`ip` = #{ip}, </if>
+			<if test="status != null">`status` = #{status}, </if>
+			<if test="isDelete != null">`is_delete` = #{isDelete}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="remove">
+		delete from zyctd_server_tb where id = #{value}
+	</delete>
+	
+	<delete id="batchRemove">
+		delete from zyctd_server_tb where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

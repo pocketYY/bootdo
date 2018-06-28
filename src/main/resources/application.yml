@@ -1,0 +1,49 @@
+server:
+  session-timeout: 1800
+#    tomcat:
+#        max-threads: 1000
+#        min-spare-threads: 30
+  port: 80
+#    uri-encoding: utf-8
+security:
+  basic:
+    enabled: false
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  profiles: 
+    active: pro
+  http:
+    multipart:
+      max-file-size: 30Mb
+      max-request-size: 30Mb
+  devtools:
+    restart:
+      enabled: true
+  cache:
+    type: ehcache
+    ehcache:
+      config: config/ehcache.xml
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mybatis/**/*Mapper.xml
+  typeAliasesPackage: com.bootdo.**.domain
+#最大连接数
+http.maxTotal : 100
+#并发数
+http.defaultMaxPerRoute : 20
+#创建连接的最长时间
+http.connectTimeout : 1000
+#从连接池中获取到连接的最长时间
+http.connectionRequestTimeout : 500
+#数据传输的最长时间
+http.socketTimeout : 10000
+#提交请求前测试连接是否可用
+http.staleConnectionCheckEnabled : true
+#[弃用]配置缓存和session存储方式，默认ehcache,可选redis,[弃用]调整至 spring cache type【shiro.用户，权限，session，spring.cache通用】
+#[弃用]cacheType: ehcache

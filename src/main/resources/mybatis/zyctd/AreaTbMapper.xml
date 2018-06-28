@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bootdo.zyctd.dao.AreaTbDao">
+
+    <select id="get" resultType="com.bootdo.zyctd.domain.AreaTbDO">
+		select `id`,`name`,`parent_id`,`parent_ids`,`level`,`is_delete`,`order_num`,`create_time` from zyctd_area_tb where id = #{value}
+	</select>
+
+    <select id="list" resultType="com.bootdo.zyctd.domain.AreaTbDO">
+        select `id`,`name`,`parent_id`,`parent_ids`,`level`,`is_delete`,`order_num`,`create_time` from zyctd_area_tb
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="parentId != null and parentId != ''">and parent_id = #{parentId}</if>
+            <if test="parentIds != null and parentIds != ''">and parent_ids = #{parentIds}</if>
+            <if test="level != null and level != ''">and level = #{level}</if>
+            and is_delete = 1
+        </where>
+        <choose>
+            <when test="sort != null and sort.trim() != ''">
+                order by ${sort} ${order}
+            </when>
+            <otherwise>
+                order by id desc
+            </otherwise>
+        </choose>
+        <choose>
+            <when test="offset != null and limit != null">
+                limit #{offset}, #{limit}
+            </when>
+            <otherwise>
+                limit 0, 10
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="count" resultType="int">
+        select count(*) from zyctd_area_tb
+        <where>
+            <if test="id != null and id != ''">and id = #{id}</if>
+            <if test="name != null and name != ''">and name = #{name}</if>
+            <if test="parentId != null and parentId != ''">and parent_id = #{parentId}</if>
+            <if test="parentIds != null and parentIds != ''">and parent_ids = #{parentIds}</if>
+            <if test="level != null and level != ''">and level = #{level}</if>
+            and is_delete = 1
+        </where>
+    </select>
+
+    <insert id="save" parameterType="com.bootdo.zyctd.domain.AreaTbDO">
+        insert into zyctd_area_tb
+        (
+        `name`,
+        `parent_id`,
+        `parent_ids`,
+        `level`,
+        `is_delete`,
+        `order_num`,
+        `create_time`
+        )
+        values
+        (
+        #{name},
+        #{parentId},
+        #{parentIds},
+        #{level},
+        #{isDelete},
+        #{orderNum},
+        #{createTime,jdbcType=TIMESTAMP}
+        )
+        <selectKey keyColumn="id" resultType="int" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <update id="update" parameterType="com.bootdo.zyctd.domain.AreaTbDO">
+        update zyctd_area_tb
+        <set>
+            <if test="name != null">`name` = #{name},</if>
+            <if test="parentId != null">`parent_id` = #{parentId},</if>
+            <if test="parentIds != null">`parent_ids` = #{parentIds},</if>
+            <if test="level != null">`level` = #{level},</if>
+            <if test="isDelete != null">`is_delete` = #{isDelete},</if>
+            <if test="orderNum != null">`order_num` = #{orderNum}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="remove">
+		update zyctd_area_tb set `is_delete`=0 where id=#{id}
+	</update>
+
+    <update id="batchRemove">
+        update zyctd_area_tb set `is_delete`=0 where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <select id="getIdByParentIds" resultType="string">
+		select group_concat(`id`) from zyctd_area_tb where FIND_IN_SET(#{id},parent_ids)>0 and `is_delete` = 1
+	</select>
+
+</mapper>

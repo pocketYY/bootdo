@@ -1,0 +1,135 @@
+2018-05-22 16:29:43 -Starting BootdoApplication on WIN-UT9AK7EHDBI with PID 12496 (D:\liumingli\workspace\bootdo\target\classes started by Administrator in D:\liumingli\workspace\bootdo)
+2018-05-22 16:29:43 -The following profiles are active: pro
+2018-05-22 16:29:54 -Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.bootdo.BootdoApplication.main(BootdoApplication.java:17)
+2018-05-22 16:29:54 -Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.bootdo.BootdoApplication.main(BootdoApplication.java:17)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 13 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 14 common frames omitted
+2018-05-22 16:29:54 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2018-05-22 16:30:41 -Starting BootdoApplication on WIN-UT9AK7EHDBI with PID 10432 (D:\liumingli\workspace\bootdo\target\classes started by Administrator in D:\liumingli\workspace\bootdo)
+2018-05-22 16:30:41 -The following profiles are active: pro
+2018-05-22 16:30:49 -Started BootdoApplication in 8.024 seconds (JVM running for 8.489)
+2018-05-22 16:31:14 -请求地址 : http://localhost/
+2018-05-22 16:31:14 -HTTP METHOD : GET
+2018-05-22 16:31:14 -CLASS_METHOD : com.bootdo.system.controller.LoginController.welcome
+2018-05-22 16:31:14 -参数 : [{}]
+2018-05-22 16:31:14 -耗时 : 1
+2018-05-22 16:31:14 -请求地址 : http://localhost/blog
+2018-05-22 16:31:14 -HTTP METHOD : GET
+2018-05-22 16:31:14 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.blog
+2018-05-22 16:31:14 -参数 : []
+2018-05-22 16:31:14 -耗时 : 0
+2018-05-22 16:31:15 -请求地址 : http://localhost/blog/open/list
+2018-05-22 16:31:15 -HTTP METHOD : GET
+2018-05-22 16:31:15 -CLASS_METHOD : com.bootdo.blog.controller.BlogController.opentList
+2018-05-22 16:31:15 -参数 : [{type=article, limit=10, offset=0}]
+2018-05-22 16:31:15 -耗时 : 23
+2018-05-22 16:31:15 -请求地址 : http://localhost/login;JSESSIONID=3db93bec-a615-49ce-8845-003eebbc1cbd
+2018-05-22 16:31:15 -HTTP METHOD : GET
+2018-05-22 16:31:15 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-05-22 16:31:15 -参数 : []
+2018-05-22 16:31:15 -耗时 : 0
+2018-05-22 16:31:16 -请求地址 : http://localhost/login
+2018-05-22 16:31:16 -HTTP METHOD : GET
+2018-05-22 16:31:16 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-05-22 16:31:16 -参数 : []
+2018-05-22 16:31:16 -耗时 : 1
+2018-05-22 16:31:16 -请求地址 : http://localhost/login
+2018-05-22 16:31:16 -HTTP METHOD : GET
+2018-05-22 16:31:16 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-05-22 16:31:16 -参数 : []
+2018-05-22 16:31:16 -耗时 : 0
+2018-05-22 16:31:17 -请求地址 : http://localhost/login
+2018-05-22 16:31:17 -HTTP METHOD : POST
+2018-05-22 16:31:17 -CLASS_METHOD : com.bootdo.system.controller.LoginController.ajaxLogin
+2018-05-22 16:31:17 -参数 : [admin, 111111]
+2018-05-22 16:31:17 -耗时 : 6
+2018-05-22 16:31:17 -请求地址 : http://localhost/index
+2018-05-22 16:31:17 -HTTP METHOD : GET
+2018-05-22 16:31:17 -CLASS_METHOD : com.bootdo.system.controller.LoginController.index
+2018-05-22 16:31:17 -参数 : [{}]
+2018-05-22 16:31:17 -耗时 : 18
+2018-05-22 16:31:17 -请求地址 : http://localhost/main
+2018-05-22 16:31:17 -HTTP METHOD : GET
+2018-05-22 16:31:17 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-05-22 16:31:17 -参数 : []
+2018-05-22 16:31:17 -耗时 : 0
+2018-05-22 16:31:17 -请求地址 : http://localhost/oa/notify/message
+2018-05-22 16:31:17 -HTTP METHOD : GET
+2018-05-22 16:31:17 -CLASS_METHOD : com.bootdo.oa.controller.NotifyController.message
+2018-05-22 16:31:17 -参数 : []
+2018-05-22 16:31:17 -耗时 : 6
+2018-05-22 16:31:17 -请求地址 : http://localhost/main
+2018-05-22 16:31:17 -HTTP METHOD : GET
+2018-05-22 16:31:17 -CLASS_METHOD : com.bootdo.system.controller.LoginController.main
+2018-05-22 16:31:17 -参数 : []
+2018-05-22 16:31:17 -耗时 : 0
+2018-05-22 16:31:19 -请求地址 : http://localhost/login
+2018-05-22 16:31:19 -HTTP METHOD : GET
+2018-05-22 16:31:19 -CLASS_METHOD : com.bootdo.system.controller.LoginController.login
+2018-05-22 16:31:19 -参数 : []
+2018-05-22 16:31:19 -耗时 : 1

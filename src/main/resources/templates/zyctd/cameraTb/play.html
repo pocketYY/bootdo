@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head th:include="include :: header"></head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content ">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <iframe id="iframe1" name="iframe1" src="" width="600px"
+                            height="400px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                            allowtransparency="yes"></iframe>
+                    <form class="form-horizontal m-t" id="signupForm">
+                        <input id="turnedStreamUrl" name="turnedStreamUrl" type="hidden" th:value="${turnedStreamUrl}">
+                        <input id="remoteUrl" name="remoteUrl" type="hidden" th:value="${remoteUrl}">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:include="include::footer"></div>
+<script th:inline="javascript" type="text/javascript" src="/js/appjs/zyctd/cameraTb/play.js">
+</script>
+</body>
+</html>
